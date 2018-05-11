@@ -1,11 +1,12 @@
 FROM microsoft/mssql-server-linux:latest
 
 ENV ACCEPT_EULA=Y
-ENV MSSQL_SA_PASSWORD=FooBar123
 ENV MSSQL_PID=Developer
 
 RUN apt-get -y update  && \
     apt-get install -y netcat
+
+COPY tmp/*sql /tmp/
 
 RUN mkdir /docker-entrypoint-initdb.d/
 COPY scripts/* /docker-entrypoint-initdb.d/
