@@ -1,0 +1,23 @@
+stages:
+  - style_check
+  - integration_test
+
+shellcheck:
+  stage: style_check
+  script:
+    - shellcheck --version
+    - for file in $(find ./ -name "*sh" -type f); do shellcheck --format=gcc $file; done;
+
+hadolint:
+  stage: style_check
+  script:
+    - hadolint --version
+    - hadolint ./src/main/Dockerfile
+
+docker_maven_plugin:
+  stage: integration_test
+  script:
+    - mvn --version
+    - mvn verify
+
+
