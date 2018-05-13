@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>se.lukesimmons</groupId>
 	<artifactId>mssql</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>pom</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -66,6 +66,10 @@
 							<build>
 								<dockerFileDir>${project.basedir}/src/main</dockerFileDir>
 							</build>
+                                                        <tags>
+                                                                <tag>${project.version}</tag>
+                                                                <tag>latest</tag>
+                                                        </tags>
 							<run>
                                                                 <portPropertyFile>/tmp/mssql.port.properties</portPropertyFile>
 								<env>

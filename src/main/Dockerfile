@@ -1,10 +1,10 @@
-FROM microsoft/mssql-server-linux:latest
+FROM microsoft/mssql-server-linux:1.0
 
 ENV ACCEPT_EULA=Y
 ENV MSSQL_PID=Developer
 
 RUN apt-get -y update  && \
-    apt-get install -y netcat
+    apt-get install -y --no-install-recommends netcat=1.10-41
 
 COPY tmp/*sql /tmp/
 
