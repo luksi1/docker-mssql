@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/luksi1/docker-mssql.svg?branch=master)](https://travis-ci.org/luksi1/docker-mssql)
+
 # MS SQL image with support for docker-entrypoint.d
 
 ## Description
