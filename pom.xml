@@ -85,7 +85,7 @@
                                                                         have never been added 
                                                                         <log>SQL Server is now ready for client connections.</log>
                                                                         -->
-									<time>120000</time>
+									<time>30000</time>
 								</wait>
 								<ports>
 									<port>database.random.port:${database.port}</port>
