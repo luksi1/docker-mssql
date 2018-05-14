@@ -23,11 +23,11 @@ if [[ ${MSSQL_USER}x != "x" ]]; then
   cp /tmp/01create-user.sql /docker-entrypoint-initdb.d/
 fi
 
-for i in $(ls /docker-entrypoint-initdb.d/*sql)
+for i in /docker-entrypoint-initdb.d/*sql
 do
-  sed -i "s|MSSQL_USER|${MSSQL_USER}|g" $i
-  sed -i "s|MSSQL_PASSWORD|${MSSQL_PASSWORD}|g" $i
-  sed -i "s|MSSQL_DATABASE|${MSSQL_DATABASE}|g" $i
+  sed -i "s|MSSQL_USER|${MSSQL_USER}|g" "$i"
+  sed -i "s|MSSQL_PASSWORD|${MSSQL_PASSWORD}|g" "$i"
+  sed -i "s|MSSQL_DATABASE|${MSSQL_DATABASE}|g" "$i"
 done
 
 /docker-entrypoint-initdb.d/run-scripts.sh &

@@ -8,8 +8,9 @@ services:
 
 before_install:
   - docker pull lukasmartinelli/hadolint
-  - docker run --rm -i lukasmartinelli/hadolint hadolint  - < src/main/Dockerfile
+  - docker run --rm -i lukasmartinelli/hadolint hadolint - < src/main/Dockerfile
   - docker run -v "$(pwd)":/mnt koalaman/shellcheck:stable src/main/scripts/*sh
+  - docker run -v "$(pwd)":/mnt koalaman/shellcheck:stable src/main/*sh
 
 script:
   - mvn verify

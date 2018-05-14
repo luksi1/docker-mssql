@@ -65,11 +65,11 @@
 							<name>luksi1/%a:latest</name>
 							<build>
 								<dockerFileDir>${project.basedir}/src/main</dockerFileDir>
+                                                                <tags>
+                                                                        <tag>${project.version}</tag>
+                                                                        <tag>latest</tag>
+                                                                </tags>
 							</build>
-                                                        <tags>
-                                                                <tag>${project.version}</tag>
-                                                                <tag>latest</tag>
-                                                        </tags>
 							<run>
                                                                 <portPropertyFile>/tmp/mssql.port.properties</portPropertyFile>
 								<env>
@@ -79,7 +79,12 @@
 									<MSSQL_DATABASE>${database.name}</MSSQL_DATABASE>
 								</env>
 								<wait>
-                                                                        <log>Changed database context to '${database.name}'</log>
+                                                                        <!--Use this if you are using the image.
+                                                                        This is commented out here, as the scripts used to add user have to be
+                                                                        added after the database is up, so the tests will fail, as the user(s)
+                                                                        have never been added 
+                                                                        <log>SQL Server is now ready for client connections.</log>
+                                                                        -->
 									<time>60000</time>
 								</wait>
 								<ports>

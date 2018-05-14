@@ -1,4 +1,4 @@
-FROM microsoft/mssql-server-linux:1.0
+FROM microsoft/mssql-server-linux:2017-CU6
 
 ENV ACCEPT_EULA=Y
 ENV MSSQL_PID=Developer
