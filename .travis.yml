@@ -7,10 +7,12 @@ services:
   - docker
 
 before_install:
-  - docker pull lukasmartinelli/hadolint
+  #- docker pull lukasmartinelli/hadolint
+  - sudo apt-get install --no-install-recommends libxml2-utils=2.9.3+dfsg1-1ubuntu0.5
   - docker run --rm -i lukasmartinelli/hadolint hadolint - < src/main/Dockerfile
   - docker run -v "$(pwd)":/mnt koalaman/shellcheck:stable src/main/scripts/*sh
   - docker run -v "$(pwd)":/mnt koalaman/shellcheck:stable src/main/*sh
+  - cat pom.xml | xmllint --format -
 
 script:
   - mvn verify
