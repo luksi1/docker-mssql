@@ -7,7 +7,7 @@
 The default MS SQL image does not support running scripts on start, even if this is a more or less de facto
 way of producing Docker database images. This image attempts to bring the MS SQL image up to snuff.
 
-Additionally, there is support for a database user and database via environmental variables.
+Additionally, there is support for a database user and database via environment variables.
 
 ## Usage
 
